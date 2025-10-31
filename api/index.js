@@ -2,7 +2,6 @@ import express from "express";
 import { paymentMiddleware } from "x402-express";
 import dotenv from "dotenv";
 import path from "path";
-import { log } from "../utils/log.js";
 import { videoAccessHandler } from "../handlers/videoAccessHandler.js";
 
 dotenv.config();
@@ -22,11 +21,16 @@ app.use(express.json());
 // x402 payment middleware configuration
 app.use(
   paymentMiddleware(
-    process.env.WALLET_ADDRESS, // your receiving wallet address
+    process.env.WALLET_ADDRESS,
     {
       // Protected endpoint for authentication
       "GET /authenticate": {
-        price: "$0.10", // Set your desired price
+        price: "$0.50", // Set your desired price
+        network: network,
+      },
+      // Protected endpoint for video content - SAME PAYMENT REQUIRED
+      "GET /video-content": {
+        price: "$0.50", // Must match authenticate price
         network: network,
       },
     },
@@ -34,21 +38,8 @@ app.use(
   )
 );
 
-// Add request logging middleware
-app.use((req, res, next) => {
-  const start = Date.now();
-  log(`${req.method} ${req.url}`);
-  log(`Request Headers: ${JSON.stringify(req.headers)}`);
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    log(`${req.method} ${req.url} - ${res.statusCode} (${duration}ms)`);
-  });
-  next();
-});
-
 // Authentication endpoint - just redirects to the authenticated content
 app.get("/authenticate", (req, res) => {
-  log("Payment successful, redirecting to video content");
   res.redirect("/video-content");
 });
 
@@ -70,6 +61,4 @@ export default app;
 
 // Start the server for local development
 const PORT = process.env.PORT || 4021;
-app.listen(PORT, () => {
-  log(`Server is running on http://localhost:${PORT}`);
-});
+app.listen(PORT);
