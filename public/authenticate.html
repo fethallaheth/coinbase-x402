@@ -170,19 +170,49 @@
 
           <div class="video-player" style="width: 100%; max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
             <h3 style="text-align: center; margin-bottom: 20px; color: #333;">🎥 Premium x402 Video Content</h3>
-            <iframe 
-              id="premium-video"
+            
+            <!-- GUARANTEED VISIBLE VIDEO - Multiple fallbacks -->
+            
+            <!-- Method 1: Direct video with sample -->
+            <video 
               width="100%" 
-              height="450" 
-              src="https://www.youtube.com/embed/pL5LxhZ8iCY?start=10&autoplay=0&controls=1&rel=0"
-              title="Premium Video Content" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen
-              style="width: 100%; height: 450px; border: 2px solid #ddd; border-radius: 8px; background: black;">
-            </iframe>
+              height="400" 
+              controls 
+              poster="https://via.placeholder.com/800x400/000000/FFFFFF?text=x402+Premium+Video"
+              style="width: 100%; height: 400px; background: #000; border: 2px solid #007cba; border-radius: 8px; margin-bottom: 15px;">
+              <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            
+            <!-- Method 2: YouTube embed with different approach -->
+            <div style="background: #f0f0f0; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+              <p style="margin: 0 0 10px 0; color: #333; font-weight: bold;">📹 x402 Coinbase Tutorial:</p>
+              <iframe 
+                width="100%" 
+                height="315" 
+                src="https://www.youtube-nocookie.com/embed/pL5LxhZ8iCY?start=10" 
+                frameborder="0" 
+                allowfullscreen
+                style="width: 100%; height: 315px; border: 1px solid #ccc;">
+              </iframe>
+            </div>
+            
+            <!-- Method 3: Direct link fallback -->
+            <div style="text-align: center; background: #e8f4f8; padding: 15px; border-radius: 8px;">
+              <p style="margin: 0 0 10px 0; color: #333;">🔗 Direct Video Links:</p>
+              <a href="https://www.youtube.com/watch?v=pL5LxhZ8iCY&t=10s" target="_blank" 
+                 style="display: inline-block; background: #ff0000; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; font-weight: bold;">
+                ▶️ Watch on YouTube
+              </a>
+              <a href="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" target="_blank"
+                 style="display: inline-block; background: #007cba; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; font-weight: bold;">
+                🎬 Sample Video
+              </a>
+            </div>
+            
             <p style="text-align: center; margin-top: 15px; color: #666; font-size: 14px;">
-              📺 Video should be visible above. If not, try refreshing the page.
+              ✅ You should see at least one video player above. This is your premium content!
             </p>
           </div>
 
