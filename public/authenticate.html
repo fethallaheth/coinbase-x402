@@ -112,8 +112,8 @@
           </ul>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="processing-actions">
+        <!-- Action Buttons (only show during processing) -->
+        <div class="processing-actions" id="processing-actions">
           <a href="/" class="nav-button">
             ← Back to Home
           </a>
@@ -123,12 +123,101 @@
           </button>
         </div>
       </div>
+
+      <!-- Video Content Section (hidden initially) -->
+      <div class="video-success-section" id="video-section" style="display: none;">
+        <div class="success-header">
+          <div class="success-icon-large">🎉</div>
+          <h1 class="success-title">Payment Successful!</h1>
+          <p class="success-description">
+            Your $0.10 USDC payment has been verified. Enjoy your premium content!
+          </p>
+          
+          <div class="payment-receipt">
+            <div class="receipt-item">
+              <span class="receipt-label">Amount Paid</span>
+              <span class="receipt-value">$0.10 USDC</span>
+            </div>
+            <div class="receipt-item">
+              <span class="receipt-label">Network</span>
+              <span class="receipt-value">Base Sepolia</span>
+            </div>
+            <div class="receipt-item">
+              <span class="receipt-label">Status</span>
+              <span class="receipt-value success-text">✅ Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Player Section -->
+        <div class="video-player-container">
+          <div class="video-header">
+            <h2>🎥 Premium Content Unlocked</h2>
+            <div class="video-meta">
+              <span>⏱️ 3:42</span>
+              <span>🎬 HD Quality</span>
+              <span>⭐ Exclusive</span>
+            </div>
+          </div>
+
+          <div class="video-player">
+            <iframe 
+              width="100%" 
+              height="500" 
+              src="https://www.youtube.com/embed/tgpVtCdu3tU?autoplay=1"
+              title="Premium Video Content" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-info">
+            <h3>Understanding x402 Protocol & Micropayments</h3>
+            <p>
+              This exclusive content explores how x402 protocol enables instant cryptocurrency 
+              micropayments for digital content, revolutionizing how creators monetize their work.
+            </p>
+            
+            <div class="video-tags">
+              <span class="tag">x402</span>
+              <span class="tag">Micropayments</span>
+              <span class="tag">Blockchain</span>
+              <span class="tag">Web3</span>
+            </div>
+          </div>
+
+          <div class="video-actions">
+            <button class="action-button">
+              👍 Like Video
+            </button>
+            <button class="action-button">
+              💾 Save for Later
+            </button>
+            <button class="action-button">
+              🔗 Share
+            </button>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation-footer">
+          <div class="container">
+            <a href="/" class="nav-button">
+              ← Back to Home
+            </a>
+            <a href="/authenticate" class="nav-button primary">
+              Watch Again
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
-  <!-- Payment success and redirect script -->
+  <!-- Payment success and video reveal script -->
   <script>
-    // Simulate payment processing and redirect to video content
+    // Simulate payment processing and show video content
     let dots = 0;
     let secondsElapsed = 0;
     
@@ -143,10 +232,10 @@
           Confirming Payment${'.'.repeat(dots)}
         `;
       } else if (statusText) {
-        // Show success and redirect
+        // Show success
         statusText.innerHTML = `
           <span class="status-dot" style="background: var(--bamboo-green)"></span>
-          Payment Confirmed! Redirecting...
+          Payment Confirmed!
         `;
         
         // Update all steps to completed
@@ -155,16 +244,25 @@
           step.classList.add('completed');
         });
         
-        // Update title
-        document.querySelector('.processing-title').textContent = 'Payment Successful!';
-        document.querySelector('.processing-subtitle').textContent = 'Redirecting to your premium content...';
+        // Update processing badge
+        const processingBadge = document.querySelector('.processing-badge');
+        if (processingBadge) {
+          processingBadge.textContent = '✅ Payment Verified';
+          processingBadge.style.background = 'var(--bamboo-green)';
+        }
         
         clearInterval(statusInterval);
         
-        // Redirect to video content
+        // Hide processing card and show video content
         setTimeout(() => {
-          window.location.href = '/video-content';
-        }, 2000);
+          document.querySelector('.processing-card').style.display = 'none';
+          document.getElementById('video-section').style.display = 'block';
+          
+          // Smooth scroll to video
+          document.getElementById('video-section').scrollIntoView({
+            behavior: 'smooth'
+          });
+        }, 1500);
       }
     }, 800);
 
