@@ -124,8 +124,8 @@
         </div>
       </div>
 
-      <!-- Video Content Section (hidden initially) -->
-      <div class="video-success-section" id="video-section" style="display: none; width: 100%; background: #fdfcf8; padding: 40px 20px; margin-top: 40px;"">
+      <!-- Video Content Section (visible for testing) -->
+      <div class="video-success-section" id="video-section" style="display: block; width: 100%; background: #fdfcf8; padding: 40px 20px; margin-top: 40px;">
         <div class="success-header">
           <div class="success-icon-large">🎉</div>
           <h1 class="success-title">Payment Successful!</h1>
@@ -168,17 +168,22 @@
             </div>
           </div>
 
-          <div class="video-player">
+          <div class="video-player" style="width: 100%; max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <h3 style="text-align: center; margin-bottom: 20px; color: #333;">🎥 Premium x402 Video Content</h3>
             <iframe 
               id="premium-video"
               width="100%" 
-              height="500" 
-              src="https://www.youtube.com/embed/pL5LxhZ8iCY?start=10&autoplay=1"
+              height="450" 
+              src="https://www.youtube.com/embed/pL5LxhZ8iCY?start=10&autoplay=0&controls=1&rel=0"
               title="Premium Video Content" 
               frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
+              allowfullscreen
+              style="width: 100%; height: 450px; border: 2px solid #ddd; border-radius: 8px; background: black;">
             </iframe>
+            <p style="text-align: center; margin-top: 15px; color: #666; font-size: 14px;">
+              📺 Video should be visible above. If not, try refreshing the page.
+            </p>
           </div>
 
           <div class="video-info">
