@@ -3,30 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>x402 Video Paywall Demo</title>
+  <title>Payment Successful - x402 Demo</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>x402 Video Paywall Demo</h1>
-  </header>
-
-  <div class="card">
-    <h3>Premium Video Content</h3>
-    <div class="video-container">
-      <iframe 
-        width="100%" 
-        height="450" 
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-brand">
+        <div class="logo">⚡</div>
+        <span>x402 Demo</span>
+      </a>
+      <div class="nav-links">
+        <div class="success-badge">✅ Payment Verified</div>
+      </div>
     </div>
-    <br />
-    <p>You have successfully paid $0.10 in cryptocurrency to access this content.</p>
-    <a href="/" class="cta-button">Return to Homepage</a>
+  </nav>
+
+  <div class="main-content">
+
+  <!-- Success Header -->
+  <div class="success-header">
+    <div class="container">
+      <div class="success-content">
+        <div class="success-icon-large">🎉</div>
+        <h1 class="success-title">
+          Payment Successful!
+        </h1>
+        <p class="success-description">
+          Your $0.10 USDC payment has been verified on the blockchain. 
+          Enjoy your premium content!
+        </p>
+        
+        <div class="payment-receipt">
+          <div class="receipt-item">
+            <span class="receipt-label">Amount Paid</span>
+            <span class="receipt-value">$0.10 USDC</span>
+          </div>
+          <div class="receipt-item">
+            <span class="receipt-label">Network</span>
+            <span class="receipt-value">Base Sepolia</span>
+          </div>
+          <div class="receipt-item">
+            <span class="receipt-label">Status</span>
+            <span class="receipt-value success-text">✅ Verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Video Section -->
+  <main class="video-section">
+    <div class="container">
+      <div class="video-player-container">
+        <div class="video-header">
+          <h2>🎥 Premium Content Unlocked</h2>
+          <div class="video-meta">
+            <span class="video-duration">⏱️ 3:42</span>
+            <span class="video-quality">🎬 HD Quality</span>
+            <span class="video-exclusive">⭐ Exclusive Content</span>
+          </div>
+        </div>
+
+        <div class="video-player">
+          <iframe 
+            width="100%" 
+            height="500" 
+            src="https://www.youtube.com/embed/tgpVtCdu3tU?autoplay=1"
+            title="Premium Video Content" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="video-info">
+          <div class="video-details">
+            <h3>Understanding Cryptocurrency Payments</h3>
+            <p>
+              This exclusive content explores the future of micropayments and how blockchain
+              technology enables instant, secure transactions for digital content creators.
+            </p>
+            
+            <div class="video-tags">
+              <span class="tag">Cryptocurrency</span>
+              <span class="tag">Blockchain</span>
+              <span class="tag">Web3</span>
+              <span class="tag">Payments</span>
+            </div>
+          </div>
+
+          <div class="video-actions">
+            <button class="action-button">
+              <span class="action-icon">👍</span>
+              Like
+            </button>
+            <button class="action-button">
+              <span class="action-icon">📤</span>
+              Share
+            </button>
+            <button class="action-button">
+              <span class="action-icon">💾</span>
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="content-sidebar">
+        <!-- More Content -->
+        <div class="sidebar-section">
+          <h3>More Premium Content</h3>
+          <div class="content-list">
+            <div class="content-item locked">
+              <div class="content-thumbnail">🎬</div>
+              <div class="content-info">
+                <h4>Advanced DeFi Strategies</h4>
+                <p>$0.15 USDC</p>
+              </div>
+              <div class="content-lock">🔒</div>
+            </div>
+            <div class="content-item locked">
+              <div class="content-thumbnail">📊</div>
+              <div class="content-info">
+                <h4>NFT Market Analysis</h4>
+                <p>$0.20 USDC</p>
+              </div>
+              <div class="content-lock">🔒</div>
+            </div>
+            <div class="content-item locked">
+              <div class="content-thumbnail">⚡</div>
+              <div class="content-info">
+                <h4>Lightning Network Deep Dive</h4>
+                <p>$0.25 USDC</p>
+              </div>
+              <div class="content-lock">🔒</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="sidebar-section">
+          <h3>Your Stats</h3>
+          <div class="user-stats">
+            <div class="stat-box">
+              <div class="stat-number">1</div>
+              <div class="stat-label">Videos Unlocked</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">$0.10</div>
+              <div class="stat-label">Total Spent</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Share -->
+        <div class="sidebar-section">
+          <h3>Share Your Achievement</h3>
+          <div class="share-buttons">
+            <button class="share-button twitter">
+              <span class="share-icon">𝕏</span>
+              Tweet
+            </button>
+            <button class="share-button discord">
+              <span class="share-icon">💬</span>
+              Discord
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Navigation Footer -->
+  <div class="navigation-footer">
+    <div class="container">
+      <a href="/" class="nav-button secondary">
+        <span class="nav-icon">🏠</span>
+        Back to Home
+      </a>
+      <button class="nav-button primary" onclick="window.location.reload()">
+        <span class="nav-icon">🔄</span>
+        Watch Again
+      </button>
+    </div>
+  </div>
+
 </body>
 </html>

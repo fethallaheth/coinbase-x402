@@ -4,23 +4,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>x402 Video Paywall Demo</title>
+  <title>Processing Payment - x402 Protocol</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>x402 Video Paywall Demo</h1>
-    <p>Processing your payment...</p>
-  </header>
-
-  <div class="card">
-    <h3>Payment in Progress</h3>
-    <div class="payment-processing">
-      <div class="loader"></div>
-      <p>Your payment is being processed. Please do not close this window.</p>
-      <p>You will be automatically redirected to the video content once the payment is confirmed.</p>
+<body class="processing-page">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-brand">
+        <div class="logo">⚡</div>
+        <span>x402 Protocol</span>
+      </a>
+      <div class="nav-links">
+        <div class="processing-badge">
+          Processing Payment
+        </div>
+      </div>
     </div>
-    <a href="/" class="cta-button secondary-button">Cancel Payment</a>
-  </div>
+  </nav>
+
+  <!-- Main Processing Content -->
+  <main class="processing-main">
+    <div class="container">
+      <div class="processing-card">
+        <!-- Payment Status Header -->
+        <div class="status-icon">
+          <div class="spinner"></div>
+          💳
+        </div>
+        
+        <h1 class="processing-title">Processing Payment</h1>
+        <p class="processing-subtitle">
+          Please confirm the transaction in your wallet and wait for blockchain confirmation
+        </p>
+
+        <!-- Payment Details -->
+        <div class="payment-details">
+          <div class="detail-row">
+            <span class="detail-label">Amount</span>
+            <span class="detail-value">$0.10 USDC</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Network</span>
+            <span class="detail-value">Base Sepolia</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Content</span>
+            <span class="detail-value">Premium Video Access</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="detail-value status-pending">
+              <span class="status-dot"></span>
+              Awaiting Confirmation
+            </span>
+          </div>
+        </div>
+
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+          <div class="step completed">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Payment Request Sent</h4>
+              <p>x402 protocol initiated</p>
+            </div>
+          </div>
+          
+          <div class="step active">
+            <div class="step-number">
+              <div class="zen-spinner"></div>
+            </div>
+            <div class="step-content">
+              <h4>Wallet Confirmation</h4>
+              <p>Please approve in your wallet</p>
+            </div>
+          </div>
+          
+          <div class="step pending">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Blockchain Verification</h4>
+              <p>Transaction confirmation pending</p>
+            </div>
+          </div>
+          
+          <div class="step pending">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Content Access</h4>
+              <p>Video will unlock automatically</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Important Notice -->
+        <div class="payment-notice">
+          <h4>Important Notice</h4>
+          <ul>
+            <li>Keep this window open during payment processing</li>
+            <li>You will be automatically redirected after confirmation</li>
+            <li>Payment typically confirms within 30 seconds</li>
+            <li>Your wallet will show the transaction status</li>
+          </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="processing-actions">
+          <a href="/" class="nav-button">
+            ← Back to Home
+          </a>
+          
+          <button class="nav-button primary" onclick="window.location.reload()">
+            Retry Payment
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Minimal payment processing script -->
+  <script>
+    // Payment confirmation animation
+    let dots = 0;
+    setInterval(() => {
+      dots = (dots + 1) % 4;
+      const statusText = document.querySelector('.detail-value.status-pending');
+      if (statusText) {
+        statusText.innerHTML = `
+          <span class="status-dot"></span>
+          Awaiting Confirmation${'.'.repeat(dots)}
+        `;
+      }
+    }, 800);
+
+    // Initialize page with zen-like loading
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('⚡ Payment processing page initialized');
+      
+      // Zen-like loading state
+      setTimeout(() => {
+        document.body.classList.add('zen-loaded');
+      }, 300);
+    });
+  </script>
 </body>
 </html>

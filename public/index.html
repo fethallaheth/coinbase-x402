@@ -3,19 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>x402 Video Paywall Demo</title>
+  <title>x402 Micropayments Demo - Real Revenue Analytics</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>x402 Video Paywall Demo</h1>
-    <p>Ready to access premium content with <a href="https://www.x402.org/" target="_blank">x402 payment</a> protocol.</p>
-  </header>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-brand">
+        <div class="logo">⚡</div>
+        <span>x402 Demo</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works" class="nav-link">How it Works</a>
+        <a href="https://www.x402.org/" target="_blank" class="nav-link">x402.org</a>
+        <div class="network-badge">Base Sepolia</div>
+      </div>
+    </div>
+  </nav>
 
-  <div class="card">
-    <h3>Premium Video Content</h3>
-    <p>Access our premium video content for just $0.10 in USDC:</p>
-    <a href="/authenticate" class="cta-button">Pay $0.10 to Access Video</a>
-  </div>
+  <div class="main-content">
+
+  <!-- Hero Section -->
+  <main class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-icon">⚡</span>
+          Powered by x402 Protocol
+        </div>
+        
+        <h1 class="hero-title">
+          Premium Content,<br>
+          <span class="gradient-text">Crypto Payments</span>
+        </h1>
+        
+        <p class="hero-description">
+          Access exclusive video content with instant cryptocurrency payments. 
+          Pay once, watch anywhere. Built on Base blockchain for fast, cheap transactions.
+        </p>
+
+        <!-- Payment Card -->
+        <div class="payment-card">
+          <div class="payment-header">
+            <h3>🎥 Premium Video Access</h3>
+            <div class="price-tag">
+              <span class="price">$0.10</span>
+              <span class="currency">USDC</span>
+            </div>
+          </div>
+          
+          <div class="payment-features">
+            <div class="feature">
+              <span class="feature-icon">🔒</span>
+              <span>Secure Blockchain Payment</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">⚡</span>
+              <span>Instant Access</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">🌍</span>
+              <span>Global Availability</span>
+            </div>
+          </div>
+
+          <div class="payment-actions">
+            <a href="/authenticate" class="primary-button">
+              <span class="button-icon">💳</span>
+              Pay $0.10 USDC to Watch
+              <span class="button-arrow">→</span>
+            </a>
+            
+            <div class="payment-info">
+              <small>
+                <span class="info-icon">ℹ️</span>
+                Secure payment via your Web3 wallet
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Stats -->
+        <div class="stats-grid" id="live-stats">
+          <div class="stat-item">
+            <div class="stat-number" id="total-revenue">$0.00</div>
+            <div class="stat-label">Total Revenue</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="transaction-count">0</div>
+            <div class="stat-label">Transactions</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="unique-users">0</div>
+            <div class="stat-label">Unique Users</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="avg-value">$0.00</div>
+            <div class="stat-label">Avg Transaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview Section -->
+      <div class="preview-section">
+        <div class="video-preview">
+          <div class="preview-placeholder">
+            <div class="preview-overlay">
+              <span class="lock-icon">🔒</span>
+              <h3>Premium Video Content</h3>
+              <p>Exclusive educational content about x402 protocol</p>
+              <p><strong>Payment Required: $0.10 USDC</strong></p>
+              <small>Click "Pay $0.10 USDC to Watch" button above to unlock</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video content removed - users must pay to access -->
+
+        <!-- How it Works -->
+        <div class="how-it-works">
+          <h3>How It Works</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Click Pay</h4>
+                <p>Click the payment button to start</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Wallet Opens</h4>
+                <p>Your Web3 wallet will show payment request</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Instant Access</h4>
+                <p>Video unlocks immediately after payment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>Powered by <a href="https://www.x402.org/" target="_blank">x402 Protocol</a> • Built on Base Blockchain</p>
+      <div class="social-links">
+        <a href="#" class="social-link">𝕏</a>
+        <a href="#" class="social-link">📘</a>
+        <a href="#" class="social-link">📱</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Real-time Stats -->
+  <script>
+    // Load real stats from API
+    async function loadStats() {
+      try {
+        const response = await fetch('/api/stats');
+        const stats = await response.json();
+        
+        // Update DOM elements
+        document.getElementById('total-revenue').textContent = '$' + stats.totalRevenue;
+        document.getElementById('transaction-count').textContent = stats.transactionCount;
+        document.getElementById('unique-users').textContent = stats.uniqueUsers;
+        document.getElementById('avg-value').textContent = '$' + stats.avgTransactionValue;
+        
+        console.log('Stats updated:', stats);
+      } catch (error) {
+        console.error('Failed to load stats:', error);
+      }
+    }
+    
+    // Load stats on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      loadStats();
+      
+      // Refresh stats every 30 seconds
+      setInterval(loadStats, 30000);
+      
+      // Add smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      // Add navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+    });
+    
+    // Show notification when payment button is clicked
+    document.querySelector('.primary-button').addEventListener('click', function() {
+      // Create a simple notification
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 16px 20px;
+        border-radius: 12px;
+        font-weight: 600;
+        z-index: 10000;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+      `;
+      notification.textContent = 'Redirecting to payment... 💳';
+      document.body.appendChild(notification);
+      
+      // Animate in
+      setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+      }, 100);
+      
+      // Remove after redirect
+      setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+        setTimeout(() => notification.remove(), 300);
+      }, 2000);
+    });
+  </script>
 </body>
 </html>
