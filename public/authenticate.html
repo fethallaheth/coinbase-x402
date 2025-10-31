@@ -59,7 +59,7 @@
             <span class="detail-label">Status</span>
             <span class="detail-value status-pending">
               <span class="status-dot"></span>
-              Awaiting Confirmation
+              Confirming Payment
             </span>
           </div>
         </div>
@@ -126,24 +126,51 @@
     </div>
   </main>
 
-  <!-- Minimal payment processing script -->
+  <!-- Payment success and redirect script -->
   <script>
-    // Payment confirmation animation
+    // Simulate payment processing and redirect to video content
     let dots = 0;
-    setInterval(() => {
+    let secondsElapsed = 0;
+    
+    const statusInterval = setInterval(() => {
       dots = (dots + 1) % 4;
+      secondsElapsed++;
+      
       const statusText = document.querySelector('.detail-value.status-pending');
-      if (statusText) {
+      if (statusText && secondsElapsed < 3) {
         statusText.innerHTML = `
           <span class="status-dot"></span>
-          Awaiting Confirmation${'.'.repeat(dots)}
+          Confirming Payment${'.'.repeat(dots)}
         `;
+      } else if (statusText) {
+        // Show success and redirect
+        statusText.innerHTML = `
+          <span class="status-dot" style="background: var(--bamboo-green)"></span>
+          Payment Confirmed! Redirecting...
+        `;
+        
+        // Update all steps to completed
+        document.querySelectorAll('.step').forEach(step => {
+          step.classList.remove('pending', 'active');
+          step.classList.add('completed');
+        });
+        
+        // Update title
+        document.querySelector('.processing-title').textContent = 'Payment Successful!';
+        document.querySelector('.processing-subtitle').textContent = 'Redirecting to your premium content...';
+        
+        clearInterval(statusInterval);
+        
+        // Redirect to video content
+        setTimeout(() => {
+          window.location.href = '/video-content';
+        }, 2000);
       }
     }, 800);
 
-    // Initialize page with zen-like loading
+    // Initialize page
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('⚡ Payment processing page initialized');
+      console.log('⚡ Payment authentication page initialized');
       
       // Zen-like loading state
       setTimeout(() => {
